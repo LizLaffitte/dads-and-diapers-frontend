@@ -5,7 +5,6 @@ import {fetchListings} from '../actions/listingActions'
 
 class ListingsContainer extends Component {
     componentDidMount(){
-        console.log(this.props)
         this.props.fetchListings()
       }
 
