@@ -1,3 +1,17 @@
+export const addListing = listing => {
+    return {
+        type: "ADD_LISTING",
+        listing
+    }
+}
+
+export const addListings = listings => {
+    return {
+        type: "ADD_LISTINGS",
+        listings
+    }
+}
+
 export const fetchListings = () => {
     return dispatch => {
         return fetch('http://localhost:3000/api/v1/listings', {
@@ -7,13 +21,12 @@ export const fetchListings = () => {
             },
           })
         .then(response => response.json())
-        .then(listingData => console.log(listingData))
+        .then(listingData => {
+            console.log(listingData)
+            dispatch({type: 'ADD_LISTINGS', listingData})
+            debugger
+        }
+            )
     }
 }
 
-export const addListing = listing => {
-    return {
-        type: "ADD_LISTING",
-        listing
-    }
-}
