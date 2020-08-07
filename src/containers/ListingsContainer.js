@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import Listings from '../components/Listings'
 import { connect } from 'react-redux'
+import {fetchListings} from './actions/listingActions'
 
 class ListingsContainer extends Component {
+    componentDidMount(){
+        console.log(this.props)
+        this.props.fetchListings()
+      }
+
     render(){
         return (
             <div>
@@ -13,4 +19,9 @@ class ListingsContainer extends Component {
     }
 }
 
-export default connect()(ListingsContainer)
+const mapDispatchToProps = dispatch => {
+    return {
+      fetchListings: () => dispatch(fetchListings())
+    }
+  }
+export default connect(null, mapDispatchToProps)(ListingsContainer)
