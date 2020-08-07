@@ -21,12 +21,7 @@ export const fetchListings = () => {
             },
           })
         .then(response => response.json())
-        .then(listingData => {
-            console.log(listingData)
-            dispatch({type: 'ADD_LISTINGS', listingData})
-            debugger
-        }
-            )
+        .then(listingData => dispatch({type: 'ADD_LISTINGS', listings: listingData}))
     }
 }
 
