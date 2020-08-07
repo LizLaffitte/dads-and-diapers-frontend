@@ -4,15 +4,17 @@ import { connect } from 'react-redux'
 import {fetchListings} from '../actions/listingActions'
 
 class ListingsContainer extends Component {
+    
     componentDidMount(){
         this.props.fetchListings()
       }
 
     render(){
+        const {listings} = this.props
         return (
             <div>
                 <h1>Listings Container</h1>
-                <Listings />
+                <Listings listings={listings} />
             </div>
         )
     }
@@ -22,5 +24,8 @@ const mapDispatchToProps = dispatch => {
     return {
       fetchListings: () => dispatch(fetchListings())
     }
-  }
-export default connect(null, mapDispatchToProps)(ListingsContainer)
+}
+
+const mapStateToProps = ({listings}) => ({listings})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListingsContainer)
