@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Listings from '../components/Listings'
 import { connect } from 'react-redux'
-import {fetchListings} from './actions/listingActions'
+import {fetchListings} from '../actions/listingActions'
 
 class ListingsContainer extends Component {
     componentDidMount(){
