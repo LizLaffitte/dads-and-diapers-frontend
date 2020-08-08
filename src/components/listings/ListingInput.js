@@ -13,7 +13,7 @@ class ListingInput extends Component {
     handleOnSubmit = (e) => {
         e.preventDefault()
         const listing = {name: this.state.name, address: this.state.name}
-        this.props.addListing(listing)
+        this.props.createListing(listing)
     }
 
     render(){
