@@ -23,7 +23,6 @@ class ListingInput extends Component {
 
     render(){
         const {name, address} = this.state
-        debugger
         return (
             <form onSubmit={this.handleOnSubmit}>
                 <h2>Add a New Listing</h2>

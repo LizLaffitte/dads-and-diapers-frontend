@@ -48,7 +48,7 @@ export const createListing = (listingFormData) => {
             if(resp.errors){
                 alert(resp.errors)
             } else {
-                dispatch(addListing(resp.data))
+                dispatch(addListing(resp))
             }
         })
     }
@@ -68,7 +68,7 @@ export const updateListing = (listingUpdateData) => {
             if(resp.errors){
                 alert(resp.errors)
             } else {
-                dispatch(updateListing(resp.data))
+                dispatch(updateListing(resp))
             }
         })
     }
