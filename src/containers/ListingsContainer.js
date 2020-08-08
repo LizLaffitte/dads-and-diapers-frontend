@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Listings from '../components/Listings'
+import Listings from '../components/listings/Listings'
 import { connect } from 'react-redux'
 import {fetchListings} from '../actions/listingActions'
 
