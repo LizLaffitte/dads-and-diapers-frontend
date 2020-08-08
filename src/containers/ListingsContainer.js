@@ -11,7 +11,7 @@ class ListingsContainer extends Component {
       }
 
     render(){
-        const {listings, addListing} = this.props
+        const {listings, createListing} = this.props
         return (
             <div>
                 <h1>Listings Container</h1>
@@ -25,7 +25,7 @@ class ListingsContainer extends Component {
 const mapDispatchToProps = dispatch => {
     return {
       fetchListings: () => dispatch(fetchListings()),
-      createListing: () => dispatch(createListing())
+      createListing: (listing) => dispatch(createListing(listing))
     }
 }
 
