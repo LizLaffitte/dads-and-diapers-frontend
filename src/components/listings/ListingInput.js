@@ -12,7 +12,7 @@ class ListingInput extends Component {
     }
     handleOnSubmit = (e) => {
         e.preventDefault()
-        const listing = {name: this.state.name, address: this.state.name}
+        const listing = {name: this.state.name, address: this.state.address}
         this.props.createListing(listing)
     }
 
@@ -20,7 +20,7 @@ class ListingInput extends Component {
         const {name, address} = this.state
         
         return (
-            <form>
+            <form onSubmit={this.handleOnSubmit}>
                 <h2>Add a New Listing</h2>
                 <label>Name:</label><br />
                 <input type="text" onChange={this.handleOnChange} name="name" value={name} /><br /><br />
@@ -28,7 +28,7 @@ class ListingInput extends Component {
                 <br />
                 <input type="text" onChange={this.handleOnChange} name="address" value={address} />
                 <br /><br />
-                <input onSubmit={this.handleOnSubmit} type="submit" />
+                <input  type="submit" />
             </form>
         )
     }
