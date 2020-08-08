@@ -12,6 +12,15 @@ export const addListings = listings => {
     }
 }
 
+export const editListing = listing => {
+    return {
+        type: "EDIT_LISTING",
+        listing
+    }
+}
+
+//Async
+
 export const fetchListings = () => {
     return dispatch => {
         return fetch('http://localhost:3000/api/v1/listings', {
@@ -40,6 +49,26 @@ export const createListing = (listingFormData) => {
                 alert(resp.errors)
             } else {
                 dispatch(addListing(resp.data))
+            }
+        })
+    }
+}
+
+export const updateListing = (listingUpdateData) => {
+    return dispatch => {
+        const listing = {listing: listingUpdateData}
+        return fetch('http://localhost:3000/api/v1/listings', {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json"
+            }, body: JSON.stringify(listing)
+          })
+        .then(response => response.json())
+        .then(resp => {
+            if(resp.errors){
+                alert(resp.errors)
+            } else {
+                dispatch(updateListing(resp.data))
             }
         })
     }
