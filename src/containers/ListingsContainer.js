@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Listings from '../components/listings/Listings'
 import { connect } from 'react-redux'
-import {fetchListings} from '../actions/listingActions'
+import {fetchListings, addListing} from '../actions/listingActions'
 import ListingInput from '../components/listings/ListingInput'
 
 class ListingsContainer extends Component {
@@ -24,7 +24,8 @@ class ListingsContainer extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-      fetchListings: () => dispatch(fetchListings())
+      fetchListings: () => dispatch(fetchListings()),
+      addListing: () => dispatch(addListing())
     }
 }
 
