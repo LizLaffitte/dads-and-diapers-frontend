@@ -14,7 +14,7 @@ class ListingsContainer extends Component {
         const {listings, createListing} = this.props
         return (
             <div>
-                <h1>Listings Container</h1>
+                <h1>Listings:</h1>
                 <ListingInput createListing={createListing} />
                 <Listings listings={listings} />
                 
