@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Listings from '../components/listings/Listings'
 import { connect } from 'react-redux'
 import {fetchListings} from '../actions/listingActions'
+import ListingInput from '../components/listings/ListingInput'
 
 class ListingsContainer extends Component {
     
@@ -15,7 +16,7 @@ class ListingsContainer extends Component {
             <div>
                 <h1>Listings Container</h1>
                 <Listings listings={listings} />
-                
+                <ListingInput />
             </div>
         )
     }
