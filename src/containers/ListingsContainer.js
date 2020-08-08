@@ -15,8 +15,9 @@ class ListingsContainer extends Component {
         return (
             <div>
                 <h1>Listings Container</h1>
-                <Listings listings={listings} />
                 <ListingInput createListing={createListing} />
+                <Listings listings={listings} />
+                
             </div>
         )
     }
