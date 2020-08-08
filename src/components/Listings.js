@@ -1,11 +1,19 @@
 import React, {Component} from 'react'
+import Listing from './Listing'
 
 class Listings extends Component {
+   renderListings = () => {
+       return this.props.listings.map(listing => {
+           return (<Listing key={listing.id} listing={listing} />)
+       })
+   }
     render(){
+
         return (
-            <ul>
-                <li>Listings Component</li>
-            </ul>
+            <div>
+                <h2>Listings Component</h2>
+                {this.renderListings()}
+            </div>
         )
     }
 }
