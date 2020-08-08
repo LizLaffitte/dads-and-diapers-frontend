@@ -11,12 +11,12 @@ class ListingsContainer extends Component {
       }
 
     render(){
-        const {listings} = this.props
+        const {listings, addListing} = this.props
         return (
             <div>
                 <h1>Listings Container</h1>
                 <Listings listings={listings} />
-                <ListingInput />
+                <ListingInput addListing={addListing} />
             </div>
         )
     }
