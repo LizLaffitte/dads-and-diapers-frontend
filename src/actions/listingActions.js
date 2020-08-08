@@ -21,7 +21,14 @@ export const fetchListings = () => {
             }
           })
         .then(response => response.json())
-        .then(listingData => dispatch({type: 'ADD_LISTINGS', listings: listingData}))
+        .then(listingData => {
+            if(listingData.errors){
+                console.log(listingData.errors)
+            }else {
+                dispatch(addListings(listingData))
+            }
+        }
+            )
     }
 }
 
@@ -40,7 +47,7 @@ export const createListing = (listingFormData) => {
             if(resp.error){
                 alert(resp.error)
             } else {
-                dispatch(addListing(resp.data))
+                dispatch(addListing(resp))
             }
         })
     }
