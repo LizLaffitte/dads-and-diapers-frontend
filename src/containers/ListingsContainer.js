@@ -3,6 +3,7 @@ import Listings from '../components/listings/Listings'
 import { connect } from 'react-redux'
 import {fetchListings, createListing} from '../actions/listingActions'
 import ListingInput from '../components/listings/ListingInput'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 class ListingsContainer extends Component {
     
@@ -15,7 +16,11 @@ class ListingsContainer extends Component {
         return (
             <div>
                 <h1>Listings:</h1>
-                <ListingInput createListing={createListing} />
+                <Router>
+                    <div>
+                        <Route path="/listings/new" render={(createListing) => <ListingInput createListing={this.props.createListing} />}  />
+                    </div>
+                </Router>
                 <Listings listings={listings} />
                 
             </div>
