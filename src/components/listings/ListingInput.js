@@ -5,7 +5,6 @@ class ListingInput extends Component {
         name: '',
         address: ''
     }
-
     handleOnChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -13,12 +12,13 @@ class ListingInput extends Component {
     }
     handleOnSubmit = (e) => {
         e.preventDefault()
-        const listing = {name: this.state.name}
+        const listing = {name: this.state.name, address: this.state.name}
         this.props.addListing(listing)
     }
 
     render(){
         const {name, address} = this.state
+        
         return (
             <form>
                 <h2>Add a New Listing</h2>
