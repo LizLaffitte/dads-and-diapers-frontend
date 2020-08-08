@@ -12,13 +12,14 @@ class ListingsContainer extends Component {
       }
 
     render(){
-        const {listings, createListing} = this.props
+        const {listings} = this.props
+        
         return (
             <div>
-                <h1>Listings:</h1>
+                <h1>Listings:</h1>  
                 <Router>
                     <div>
-                        <Route path="/listings/new" render={(createListing) => <ListingInput createListing={this.props.createListing} />}  />
+                        <Route path="/listings/new" render={(props) => <ListingInput {...props} listingSubmit={this.props.createListing} name={""} address={""} />}  />
                     </div>
                 </Router>
                 <Listings listings={listings} />
