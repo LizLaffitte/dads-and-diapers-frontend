@@ -5,6 +5,12 @@ class ListingInput extends Component {
         name: '',
         address: ''
     }
+
+    handleOnChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
     
     render(){
         const {name, address} = this.state
@@ -12,10 +18,10 @@ class ListingInput extends Component {
             <form>
                 <h2>Add a New Listing</h2>
                 <label>Name:</label><br />
-                <input type="text" value={name} /><br /><br />
+                <input type="text" onChange={this.handleOnChange} name="name" value={name} /><br /><br />
                 <label>Address:</label>
                 <br />
-                <input type="text" valut={address} />
+                <input type="text" onChange={this.handleOnChange} name="address" value={address} />
                 <br /><br />
                 <input type="submit" />
             </form>
