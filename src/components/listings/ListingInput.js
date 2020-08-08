@@ -11,7 +11,10 @@ class ListingInput extends Component {
             [e.target.name]: e.target.value
         })
     }
-    
+    handleOnSubmit = (e) => {
+        e.preventDefault()
+    }
+
     render(){
         const {name, address} = this.state
         return (
@@ -23,7 +26,7 @@ class ListingInput extends Component {
                 <br />
                 <input type="text" onChange={this.handleOnChange} name="address" value={address} />
                 <br /><br />
-                <input type="submit" />
+                <input onSubmit={this.handleOnSubmit} type="submit" />
             </form>
         )
     }
