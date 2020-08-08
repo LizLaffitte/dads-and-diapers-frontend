@@ -14,6 +14,7 @@ class ListingInput extends Component {
         e.preventDefault()
         const listing = {name: this.state.name, address: this.state.address}
         this.props.createListing(listing)
+        this.setState({name: '', address: ''})
     }
 
     render(){
