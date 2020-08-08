@@ -28,7 +28,6 @@ export const fetchListings = () => {
 export const createListing = (listingFormData) => {
     return dispatch => {
         const listing = {listing: listingFormData}
-        debugger
         return fetch('http://localhost:3000/api/v1/listings', {
             method: "POST",
             headers: {
@@ -37,8 +36,8 @@ export const createListing = (listingFormData) => {
           })
         .then(response => response.json())
         .then(resp => {
-            if(resp.error){
-                alert(resp.error)
+            if(resp.errors){
+                alert(resp.errors)
             } else {
                 dispatch(addListing(resp.data))
             }
