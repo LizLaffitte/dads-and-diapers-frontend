@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 
 class ListingInput extends Component {
-    state = {
-        name: '',
-        address: ''
+    constructor(props){
+        super(props)
+        this.state = {
+            name: this.props.name,
+            address: this.props.address
+        }
     }
+
     handleOnChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -13,13 +17,13 @@ class ListingInput extends Component {
     handleOnSubmit = (e) => {
         e.preventDefault()
         const listing = {name: this.state.name, address: this.state.address}
-        this.props.createListing(listing)
+        this.props.listingSubmit(listing)
         this.setState({name: '', address: ''})
     }
 
     render(){
         const {name, address} = this.state
-        
+        debugger
         return (
             <form onSubmit={this.handleOnSubmit}>
                 <h2>Add a New Listing</h2>
