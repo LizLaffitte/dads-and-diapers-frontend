@@ -15,6 +15,7 @@ class ListingsContainer extends Component {
             <div>
                 <h1>Listings Container</h1>
                 <Listings listings={listings} />
+                
             </div>
         )
     }
