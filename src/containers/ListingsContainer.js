@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Listings from '../components/listings/Listings'
 import { connect } from 'react-redux'
-import {fetchListings, createListing} from '../actions/listingActions'
+import {fetchListings, createListing, updateListing} from '../actions/listingActions'
 import ListingInput from '../components/listings/ListingInput'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
@@ -11,18 +11,18 @@ class ListingsContainer extends Component {
         this.props.fetchListings()
       }
 
-    render(){
-        const {listings} = this.props
-        
+    render(){        
         return (
             <div>
                 <h1>Listings:</h1>  
                 <Router>
                     <div>
                         <Route path="/listings/new" render={(props) => <ListingInput {...props} listingSubmit={this.props.createListing} name={""} address={""} />}  />
+                        <Route path="/listings/:id/edit" render={(props) => <ListingInput {...props} listingSubmit={this.props.updateListing} name={""} address={""} />}  />
+                        <Route path="/listings" render={(props) => <Listings {...props} listings={this.props.listings}/>} />
+                        
                     </div>
                 </Router>
-                <Listings listings={listings} />
                 
             </div>
         )
@@ -32,7 +32,8 @@ class ListingsContainer extends Component {
 const mapDispatchToProps = dispatch => {
     return {
       fetchListings: () => dispatch(fetchListings()),
-      createListing: (listing) => dispatch(createListing(listing))
+      createListing: (listing) => dispatch(createListing(listing)),
+      updateListing: (listing) => dispatch(updateListing(listing))
     }
 }
 
