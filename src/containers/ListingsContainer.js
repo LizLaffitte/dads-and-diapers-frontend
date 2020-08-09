@@ -15,8 +15,7 @@ class ListingsContainer extends Component {
 
     render(){        
         return (
-            <div>
-                <h1>Listings:</h1>  
+            <div> 
                 <Router>
                     <div>
                         <Route path="/listings/new" exact component={NewListingFormWrapper}/>
