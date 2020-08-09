@@ -1,8 +1,10 @@
 import React , { Component } from 'react';
 import './App.css';
-import ListingsContainer from './containers/ListingsContainer'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+import { connect } from 'react-redux'
+import ListingsContainer from './containers/ListingsContainer'
 import LoginForm from './components/LoginForm'
+import {login} from './actions/userActions'
 class App extends Component {
 
   render (){
@@ -14,7 +16,7 @@ class App extends Component {
               <Route path='/' component={ListingsContainer}  />
             </div>
             </Router>
-            <LoginForm />
+            <LoginForm login={this.props.login} />
         </header>
       </div>
     )
@@ -23,4 +25,4 @@ class App extends Component {
 
 
 
-export default App
+export default connect(null, {login})(App)
