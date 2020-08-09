@@ -3,7 +3,8 @@ import ListingForm from '../components/listings/ListingForm'
 
 class EditListingForm extends Component {
     render(){
-        <ListingForm />
+        debugger
+        return (<ListingForm listing={this.props.listing} header={"Edit "} />)    
     }
 }
 

@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 
 class ListingForm extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            // name: (this.props.listing.name ? this.props.listing.name : ""),
-            // address: (this.props.listing.address ? this.props.listing.address : "")
-            name: '',
-            address: ''
-        }
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //         // name: (this.props.listing.name ? this.props.listing.name : ""),
+    //         // address: (this.props.listing.address ? this.props.listing.address : "")
+    //         name: '',
+    //         address: ''
+    //     }
+    // }
+
+    state = {
+        name: this.props.listing.name,
+        address: this.props.listing.address
     }
 
     handleOnChange = (e) => {
@@ -27,7 +32,7 @@ class ListingForm extends Component {
         const {name, address} = this.state
         return (
             <form onSubmit={this.handleOnSubmit}>
-                <h2>Add a New Listing</h2>
+                <h2>{this.props.header} Listing</h2>
                 <label>Name:</label><br />
                 <input type="text" onChange={this.handleOnChange} name="name" value={name} /><br /><br />
                 <label>Address:</label>

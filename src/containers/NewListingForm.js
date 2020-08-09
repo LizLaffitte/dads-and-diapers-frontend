@@ -3,8 +3,9 @@ import ListingForm from '../components/listings/ListingForm'
 
 class NewListingForm extends Component {
     render(){
+        const listing = {address: "", name:"", id:""}
         return (
-            <ListingForm />
+            <ListingForm listing={listing} header={"Add a New "} />
         )
     }
     
