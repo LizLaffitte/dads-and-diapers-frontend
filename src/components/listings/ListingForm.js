@@ -1,16 +1,6 @@
 import React, { Component } from 'react'
 
 class ListingForm extends Component {
-    // constructor(props){
-    //     super(props)
-    //     this.state = {
-    //         // name: (this.props.listing.name ? this.props.listing.name : ""),
-    //         // address: (this.props.listing.address ? this.props.listing.address : "")
-    //         name: '',
-    //         address: ''
-    //     }
-    // }
-
     state = {
         name: this.props.listing.name,
         address: this.props.listing.address
