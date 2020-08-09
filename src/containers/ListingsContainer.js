@@ -37,7 +37,6 @@ class ListingsContainer extends Component {
 const mapDispatchToProps = dispatch => {
     return {
       fetchListings: () => dispatch(fetchListings()),
-      createListing: (listing) => dispatch(createListing(listing)),
       updateListing: (listing) => dispatch(updateListing(listing))
     }
 }
