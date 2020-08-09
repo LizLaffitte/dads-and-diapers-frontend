@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 
-class ListingInput extends Component {
+class ListingForm extends Component {
     constructor(props){
         super(props)
         this.state = {
-            name: this.props.name,
-            address: this.props.address
+            // name: (this.props.listing.name ? this.props.listing.name : ""),
+            // address: (this.props.listing.address ? this.props.listing.address : "")
+            name: '',
+            address: ''
         }
     }
 
@@ -18,7 +20,7 @@ class ListingInput extends Component {
         e.preventDefault()
         const listing = {name: this.state.name, address: this.state.address}
         this.props.listingSubmit(listing)
-        this.setState({name: '', address: ''})
+        // this.setState({name: '', address: ''})
     }
 
     render(){
@@ -39,4 +41,4 @@ class ListingInput extends Component {
 
 }
 
-export default ListingInput
+export default ListingForm
