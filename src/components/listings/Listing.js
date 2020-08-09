@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 class Listing extends Component {
     
     render(){
-        const {name, address, mens_chance, womens_chance, id} = this.props.listing
+        const {name, address, mens_chance, womens_chance, id} = this.props.listing.attributes
         return(
             <div>
                 <h3>{name}</h3>
