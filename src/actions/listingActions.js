@@ -19,6 +19,13 @@ export const editListing = listing => {
     }
 }
 
+export const testListing = listing => {
+    return{
+        type: "TEST_LISTING",
+        listing
+    }
+}
+
 //Async
 
 export const fetchListings = () => {
@@ -30,7 +37,7 @@ export const fetchListings = () => {
             }
           })
         .then(response => response.json())
-        .then(listingData => dispatch({type: 'ADD_LISTINGS', listings: listingData}))
+        .then(listingData => dispatch(addListings(listingData.data)))
     }
 }
 
@@ -54,10 +61,11 @@ export const createListing = (listingFormData) => {
     }
 }
 
-export const updateListing = (listingUpdateData) => {
+export const updateListing = (listingUpdateData, listingId) => {
     return dispatch => {
         const listing = {listing: listingUpdateData}
-        return fetch('http://localhost:3000/api/v1/listings', {
+        debugger
+        return fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json"
@@ -68,7 +76,7 @@ export const updateListing = (listingUpdateData) => {
             if(resp.errors){
                 alert(resp.errors)
             } else {
-                dispatch(updateListing(resp))
+                dispatch(editListing(resp))
             }
         })
     }
