@@ -3,7 +3,9 @@ import Listings from '../components/listings/Listings'
 import { connect } from 'react-redux'
 import {fetchListings, createListing, updateListing} from '../actions/listingActions'
 import ListingForm from '../components/listings/ListingForm'
+import NewListingForm from '../containers/NewListingForm'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+
 
 class ListingsContainer extends Component {
     
@@ -17,7 +19,7 @@ class ListingsContainer extends Component {
                 <h1>Listings:</h1>  
                 <Router>
                     <div>
-                        <Route path="/listings/new" render={(props) => <ListingForm {...props} listingSubmit={this.props.createListing} listing={false} />}  />
+                        <Route path="/listings/new" exact component={NewListingForm}/>
                         <Route path="/listings/:id/edit" exact render={(props) => {
                             const listing = this.props.listings.find(listing => listing.id == props.match.params.id) 
                             console.log(listing)                           

@@ -3,8 +3,11 @@ import ListingForm from '../components/listings/ListingForm'
 
 class NewListingForm extends Component {
     render(){
-        <ListingForm />
+        return (
+            <ListingForm />
+        )
     }
+    
 }
 
 export default NewListingForm
