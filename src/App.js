@@ -2,6 +2,7 @@ import React , { Component } from 'react';
 import './App.css';
 import ListingsContainer from './containers/ListingsContainer'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+import LoginForm from './components/LoginForm'
 class App extends Component {
 
   render (){
@@ -13,6 +14,7 @@ class App extends Component {
               <Route path='/' component={ListingsContainer}  />
             </div>
             </Router>
+            <LoginForm />
         </header>
       </div>
     )
