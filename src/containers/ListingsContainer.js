@@ -21,8 +21,7 @@ class ListingsContainer extends Component {
                     <div>
                         <Route path="/listings/new" exact component={NewListingFormWrapper}/>
                         <Route path="/listings/:id/edit" exact render={(props) => {
-                            const listing = this.props.listings.find(listing => listing.id == props.match.params.id)    
-                            console.log(listing)                        
+                            const listing = this.props.listings.find(listing => listing.id == props.match.params.id)                  
                             return <EditListingFormWrapper {...props} listing={listing} />}}  />
                         <Route path="/listings" exact render={(props) => <Listings {...props} listings={this.props.listings}/>} />
                         
