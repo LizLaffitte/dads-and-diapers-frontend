@@ -5,9 +5,8 @@ import {updateListing} from '../actions/listingActions'
 
 class EditListingFormWrapper extends Component {
 
-    handleOnSubmit = (e) => {
-        e.preventDefault()
-        this.props.updateListing(this.props.listing)
+    handleOnSubmit = (state) => {
+        this.props.updateListing({name: state.name, address: state.address})
     }
 
     render(){
