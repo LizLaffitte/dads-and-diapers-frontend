@@ -10,7 +10,7 @@ class EditListingFormWrapper extends Component {
     }
 
     render(){
-        return (<ListingForm listing={this.props.listing} header={"Edit "} submit={this.handleOnSubmit} />)    
+        return (<ListingForm listing={this.props.listing} header={"Edit "} submit={this.handleOnSubmit}  history={this.props.history} />)    
     }
 }
 
