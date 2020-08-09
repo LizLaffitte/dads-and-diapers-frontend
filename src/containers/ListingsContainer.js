@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Listings from '../components/listings/Listings'
 import { connect } from 'react-redux'
-import {fetchListings, createListing, updateListing} from '../actions/listingActions'
+import {fetchListings, updateListing} from '../actions/listingActions'
 import NewListingFormWrapper from './NewListingFormWrapper'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import EditListingFormWrapper from './EditListingFormWrapper'
