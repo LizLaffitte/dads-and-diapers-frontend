@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ListingForm from '../components/listings/ListingForm'
 
-class NewListingForm extends Component {
+class NewListingFormWrapper extends Component {
     render(){
         const listing = {address: "", name:"", id:""}
         return (
@@ -11,4 +11,4 @@ class NewListingForm extends Component {
     
 }
 
-export default NewListingForm
+export default NewListingFormWrapper
