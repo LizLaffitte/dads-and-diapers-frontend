@@ -12,10 +12,16 @@ class ListingForm extends Component {
         })
     }
 
+    handleOnSubmit = (e) => {
+        e.preventDefault()
+        this.props.submit(this.state)
+        this.props.history.push('/listings')
+    }
+
     render(){
         const {name, address} = this.state
         return (
-            <form onSubmit={this.props.submit}>
+            <form onSubmit={this.handleOnSubmit}>
                 <h2>{this.props.header} Listing</h2>
                 <label>Name:</label><br />
                 <input type="text" onChange={this.handleOnChange} name="name" value={name} /><br /><br />
