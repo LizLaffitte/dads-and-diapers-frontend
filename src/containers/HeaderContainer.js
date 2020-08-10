@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import LoginForm from '../components/LoginForm'
 import LogoutForm from '../components/LogoutForm'
 import Navbar from '../components/Navbar'
-import {login, getCurrentUser, logout} from '../actions/userActions'
+import {getCurrentUser, logout} from '../actions/userActions'
 import { NavLink } from 'react-router-dom'
 
 class HeaderContainer extends Component {
@@ -30,4 +29,4 @@ class HeaderContainer extends Component {
 
 const mapStateToProps = ({currentUser}) => ({currentUser})
 
-export default connect(mapStateToProps, {login, getCurrentUser, logout})(HeaderContainer)
+export default connect(mapStateToProps, {getCurrentUser, logout})(HeaderContainer)
