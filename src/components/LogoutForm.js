@@ -8,9 +8,14 @@ class LogoutForm extends Component {
     }
     render() {
         return(
-            <form onSubmit={this.handleOnSubmit}>
-                <input type="submit" value="Log Out"  />
-            </form>
+            <div className="flex space-btn">
+                {`Hello ${this.props.user.attributes.username}`}
+                <form id="logout-form" onSubmit={this.handleOnSubmit}>
+                    <input type="submit" value="Log Out"  />
+                </form>
+
+            </div>
+            
         )
     }
 }
