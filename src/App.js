@@ -4,10 +4,19 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 import ListingsContainer from './containers/ListingsContainer'
 import LoginForm from './components/LoginForm'
-import {login, getCurrentUser} from './actions/userActions'
+import LogoutForm from './components/LogoutForm'
+import {login, getCurrentUser, logout} from './actions/userActions'
+
+
 class App extends Component {
   componentDidMount() {
-    this.props.agetCurrentUser()
+    this.props.getCurrentUser()
+  }
+
+  logButtonRender = () => {
+    return (
+      this.props.currentUser ? <LogoutForm logout={this.props.logout} /> : <LoginForm login={this.props.login} />
+    )
   }
   render (){
     return (
@@ -18,13 +27,13 @@ class App extends Component {
               <Route path='/' component={ListingsContainer}  />
             </div>
             </Router>
-            <LoginForm login={this.props.login} />
+            {this.logButtonRender()}
         </header>
       </div>
     )
   }
 }
 
+const mapStateToProps = ({currentUser}) => ({currentUser})
 
-
-export default connect(null, {login, getCurrentUser})(App)
+export default connect(mapStateToProps, {login, getCurrentUser, logout})(App)
