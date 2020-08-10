@@ -10,12 +10,13 @@ class App extends Component {
   render (){
     return (
       <div className="App">
+        <HeaderContainer />
           <Router>
             <div>
               <Route path='/' component={ListingsContainer}  />
             </div>
             </Router>
-            <HeaderContainer />
+            
       </div>
     )
   }
