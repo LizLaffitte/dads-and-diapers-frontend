@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import LoginForm from '../components/LoginForm'
 import LogoutForm from '../components/LogoutForm'
+import Navbar from '../components/Navbar'
 import {login, getCurrentUser, logout} from '../actions/userActions'
 
 class HeaderContainer extends Component {
@@ -11,7 +12,7 @@ class HeaderContainer extends Component {
 
     buttonRender = () => {
         return (
-          this.props.currentUser ? <LogoutForm logout={this.props.logout} /> : <LoginForm login={this.props.login} />
+          this.props.currentUser ? <LogoutForm logout={this.props.logout} user={this.props.currentUser} /> : <LoginForm login={this.props.login} />
         )
       }
 
@@ -19,6 +20,7 @@ class HeaderContainer extends Component {
         return(
             <header>
                 <div>Dads & Diapers</div>
+                <Navbar />
                 <div className="log-btns">{this.buttonRender()}</div>
             </header>
         )
