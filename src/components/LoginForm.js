@@ -13,6 +13,7 @@ class LoginForm extends Component {
     handleOnSubmit = (e) => {
         e.preventDefault()
         this.props.login(this.state)
+        // this.props.history.push('/listings')
     }
     render() {
         const {username, password} = this.state
