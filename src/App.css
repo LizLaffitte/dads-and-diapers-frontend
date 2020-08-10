@@ -48,12 +48,8 @@ header div.log-btns{
   justify-self: flex-end;
 }
 
-#login-form  {
-  display: flex;
-}
-#login-form input {
-  margin: 0px 10px;
-}
+
+
 
 #logout-form {
   margin-left: 10px;
