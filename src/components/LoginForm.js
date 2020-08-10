@@ -13,17 +13,18 @@ class LoginForm extends Component {
     handleOnSubmit = (e) => {
         e.preventDefault()
         this.props.login(this.state)
-        // this.props.history.push('/listings')
+        this.props.history.push('/listings')
     }
     render() {
         const {username, password} = this.state
         return(
             <form id="login-form" onSubmit={this.handleOnSubmit}>
-                <label>Username: </label>
-                <input type="text" value={username} onChange={this.handleOnChange} name="username" />
-                <label>Password: </label> 
+                <h1>Login</h1>
+                <label>Username: </label><br />
+                <input type="text" value={username} onChange={this.handleOnChange} name="username" /><br /><br />
+                <label>Password: </label> <br />
                 <input type="password" value={password} name="password" onChange={this.handleOnChange} />
-                
+                <br /><br />
                 <input type="submit" value="Log In"  />
             </form>
         )
