@@ -37,7 +37,12 @@
   }
 }
 
-/* form {
-  background-color: #fff;
-  color: #282c34;
-} */
+header {
+  background-color: #202C39;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+}
+header div.log-btns{
+  justify-self: flex-end;
+}

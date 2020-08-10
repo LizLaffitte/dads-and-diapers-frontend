@@ -18,8 +18,8 @@ class HeaderContainer extends Component {
     render(){
         return(
             <header>
-                <div>Logo Here</div>
-                <div>{this.buttonRender()}</div>
+                <div>Dads & Diapers</div>
+                <div className="log-btns">{this.buttonRender()}</div>
             </header>
         )
     }
