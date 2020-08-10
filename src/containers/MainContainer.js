@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import LoginForm from '../components/LoginForm'
+import LoginForm from '../components/userForms/LoginForm'
 import {login} from '../actions/userActions'
 import ListingsContainer from '../containers/ListingsContainer'
 

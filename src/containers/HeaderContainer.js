@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import LogoutForm from '../components/LogoutForm'
+import LogoutForm from '../components/userForms/LogoutForm'
 import Navbar from '../components/Navbar'
 import {getCurrentUser, logout} from '../actions/userActions'
 import { NavLink } from 'react-router-dom'
