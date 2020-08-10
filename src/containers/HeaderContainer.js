@@ -4,6 +4,7 @@ import LoginForm from '../components/LoginForm'
 import LogoutForm from '../components/LogoutForm'
 import Navbar from '../components/Navbar'
 import {login, getCurrentUser, logout} from '../actions/userActions'
+import { NavLink } from 'react-router-dom'
 
 class HeaderContainer extends Component {
     componentDidMount() {
@@ -12,7 +13,7 @@ class HeaderContainer extends Component {
 
     buttonRender = () => {
         return (
-          this.props.currentUser ? <LogoutForm logout={this.props.logout} user={this.props.currentUser} /> : <LoginForm login={this.props.login} />
+          this.props.currentUser ? <LogoutForm logout={this.props.logout} user={this.props.currentUser} /> : <div><NavLink to="/login">Login</NavLink> | <NavLink to="/signup">Signup</NavLink></div>
         )
       }
 
