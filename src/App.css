@@ -37,7 +37,30 @@
   }
 }
 
-form {
-  background-color: #fff;
-  color: #282c34;
+header {
+  background-color: #202C39;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+header div.log-btns{
+  justify-self: flex-end;
+}
+
+#login-form  {
+  display: flex;
+}
+#login-form input {
+  margin: 0px 10px;
+}
+
+#logout-form {
+  margin-left: 10px;
+}
+.flex{
+  display: flex;
+}
+.space-btn {
+  justify-content: space-between;
 }

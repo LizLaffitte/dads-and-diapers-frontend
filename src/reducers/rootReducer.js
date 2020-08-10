@@ -1,28 +1,12 @@
 import { combineReducers } from 'redux'
-
-function manageListings(state=[], action){
-    switch(action.type){
-        case 'ADD_LISTINGS':
-            return action.listings
-        case 'ADD_LISTING':
-            return [...state, action.listing]
-
-        default:
-            return state
-    }
-    
-}
-
-function manageReviews(state=[], action){
-    switch(action.type){
-        default:
-            return state
-    }
-}
+import manageListings from './manageListings'
+import manageReviews from './manageReviews'
+import currentUser from './currentUser'
 
 const rootReducer = combineReducers({
     listings: manageListings,
-    reivews: manageReviews
+    reviews: manageReviews,
+    currentUser: currentUser
 })
 
 export default rootReducer

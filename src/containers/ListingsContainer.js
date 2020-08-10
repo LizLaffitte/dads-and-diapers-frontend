@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import Listings from '../components/listings/Listings'
 import { connect } from 'react-redux'
-import {fetchListings, createListing} from '../actions/listingActions'
-import ListingInput from '../components/listings/ListingInput'
+import {fetchListings, updateListing} from '../actions/listingActions'
+import NewListingFormWrapper from './NewListingFormWrapper'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import EditListingFormWrapper from './EditListingFormWrapper'
+
 
 class ListingsContainer extends Component {
     
@@ -10,13 +13,18 @@ class ListingsContainer extends Component {
         this.props.fetchListings()
       }
 
-    render(){
-        const {listings, createListing} = this.props
+    render(){        
         return (
-            <div>
-                <h1>Listings:</h1>
-                <ListingInput createListing={createListing} />
-                <Listings listings={listings} />
+            <div> 
+                <Router>
+                    <div>
+                        <Route path="/listings/new" exact component={NewListingFormWrapper}/>
+                        <Route path="/listings/:id/edit" exact render={(props) => {
+                            const listing = this.props.listings.find(listing => listing.id == props.match.params.id)                  
+                            return <EditListingFormWrapper {...props} listing={listing} />}}  />
+                        <Route path="/listings" render={(props) => <Listings {...props} listings={this.props.listings}/>} />
+                    </div>
+                </Router>
                 
             </div>
         )
@@ -26,7 +34,7 @@ class ListingsContainer extends Component {
 const mapDispatchToProps = dispatch => {
     return {
       fetchListings: () => dispatch(fetchListings()),
-      createListing: (listing) => dispatch(createListing(listing))
+      updateListing: (listing) => dispatch(updateListing(listing))
     }
 }
 

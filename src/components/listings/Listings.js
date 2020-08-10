@@ -11,7 +11,7 @@ class Listings extends Component {
 
         return (
             <div>
-                <h2>Listings Component</h2>
+                 <h1>Listings:</h1> 
                 {this.renderListings()}
             </div>
         )

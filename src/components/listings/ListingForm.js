@@ -1,28 +1,28 @@
 import React, { Component } from 'react'
 
-class ListingInput extends Component {
+class ListingForm extends Component {
     state = {
-        name: '',
-        address: ''
+        name: this.props.listing.name,
+        address: this.props.listing.address
     }
+
     handleOnChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
     handleOnSubmit = (e) => {
         e.preventDefault()
-        const listing = {name: this.state.name, address: this.state.address}
-        this.props.createListing(listing)
-        this.setState({name: '', address: ''})
+        this.props.submit(this.state)
+        this.props.history.push('/listings')
     }
 
     render(){
         const {name, address} = this.state
-        
         return (
             <form onSubmit={this.handleOnSubmit}>
-                <h2>Add a New Listing</h2>
+                <h2>{this.props.header} Listing</h2>
                 <label>Name:</label><br />
                 <input type="text" onChange={this.handleOnChange} name="name" value={name} /><br /><br />
                 <label>Address:</label>
@@ -36,4 +36,4 @@ class ListingInput extends Component {
 
 }
 
-export default ListingInput
+export default ListingForm
