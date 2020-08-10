@@ -71,9 +71,9 @@ export const logout = () => {
         .then(response => response.json())
         .then(userData => {
             if(userData.errors){
-                console.log(userData)
+                console.log(userData.errors)
             } else {
-                console.log(userData)
+                console.log(userData.notice)
             }
             
         })
