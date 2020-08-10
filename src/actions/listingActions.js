@@ -30,7 +30,7 @@ export const testListing = listing => {
 
 export const fetchListings = () => {
     return dispatch => {
-        return fetch('http://localhost:3000/api/v1/listings', {
+        return fetch('http://localhost:3001/api/v1/listings', {
             method: "GET",
             headers: {
               "Content-Type": "application/json"
@@ -38,14 +38,15 @@ export const fetchListings = () => {
           })
         .then(response => response.json())
         .then(listingData => dispatch(addListings(listingData.data)))
+        .catch(console.log())
     }
 }
 
 export const createListing = (listingFormData) => {
     return dispatch => {
         const listing = {listing: listingFormData}
-        return fetch('http://localhost:3000/api/v1/listings', {
-            method: "POST",
+        return fetch('http://localhost:3001/api/v1/listings', {
+        method: "POST",
             headers: {
               "Content-Type": "application/json"
             }, body: JSON.stringify(listing)
@@ -55,16 +56,16 @@ export const createListing = (listingFormData) => {
             if(resp.errors){
                 alert(resp.errors)
             } else {
-                dispatch(addListing(resp))
+                dispatch(addListing(resp.data))
             }
         })
+        .catch(console.log())
     }
 }
 
 export const updateListing = (listingUpdateData, listingId) => {
     return dispatch => {
         const listing = {listing: listingUpdateData}
-        debugger
         return fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
             method: "PATCH",
             headers: {
@@ -76,7 +77,7 @@ export const updateListing = (listingUpdateData, listingId) => {
             if(resp.errors){
                 alert(resp.errors)
             } else {
-                dispatch(editListing(resp))
+                dispatch(editListing(resp.data))
             }
         })
     }
