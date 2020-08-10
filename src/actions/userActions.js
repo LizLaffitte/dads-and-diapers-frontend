@@ -37,6 +37,30 @@ export const login = credentials => {
     }
 }
 
+export const signup = credentials => {
+    return dispatch => {
+        return fetch('http://localhost:3001/signup', {
+            credentials: 'include',
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(credentials)
+          })
+        .then(response => response.json())
+        .then(userData => {
+            if(userData.error){
+                debugger
+                console.log(userData.errors)
+            } else {
+                console.log(userData)
+                dispatch(setCurrentUser(userData.data))
+            }
+            
+        })
+        .catch(console.log())
+    }
+}
 
 export const getCurrentUser = () => {
     return dispatch => {
