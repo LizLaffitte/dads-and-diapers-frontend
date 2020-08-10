@@ -18,13 +18,12 @@ class LoginForm extends Component {
     render() {
         const {username, password} = this.state
         return(
-            <form onSubmit={this.handleOnSubmit}>
-                <label>Username:</label><br />
+            <form id="login-form" onSubmit={this.handleOnSubmit}>
+                <label>Username: </label>
                 <input type="text" value={username} onChange={this.handleOnChange} name="username" />
-                <br /><br />
-                <label>Password:</label><br />
+                <label>Password: </label> 
                 <input type="password" value={password} name="password" onChange={this.handleOnChange} />
-                <br /><br />
+                
                 <input type="submit" value="Log In"  />
             </form>
         )
