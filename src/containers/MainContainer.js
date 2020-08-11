@@ -3,17 +3,14 @@ import { connect } from 'react-redux'
 import {Route, Switch, Redirect, useHistory} from 'react-router-dom'
 import LoginForm from '../components/userForms/LoginForm'
 import SignupForm from '../components/userForms/SignupForm'
-import {login, signup, getCurrentUser} from '../actions/userActions'
+import {login, signup} from '../actions/userActions'
 import ListingsContainer from '../containers/ListingsContainer'
 
 class MainContainer extends Component {
-    componentDidMount() {
-        this.props.getCurrentUser()
-    }
-
     loggedIn = () =>{
         return this.props.currentUser
     }
+
     render(){
         return(
             <main>
@@ -30,4 +27,4 @@ class MainContainer extends Component {
     }
 }
 const mapStateToProps = ({currentUser}) => ({currentUser})
-export default connect(mapStateToProps, {login, signup, getCurrentUser})(MainContainer)
+export default connect(mapStateToProps, {login, signup})(MainContainer)
