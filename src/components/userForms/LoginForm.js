@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import {withRouter} from 'react-router-dom'
 class LoginForm extends Component {
     state = {
         username: "",
@@ -30,4 +30,4 @@ class LoginForm extends Component {
         )
     }
 }
-export default LoginForm
+export default withRouter(LoginForm)
