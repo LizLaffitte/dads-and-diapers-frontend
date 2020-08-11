@@ -28,7 +28,6 @@ export const login = credentials => {
             if(userData.errors){
                 console.log(userData.errors)
             } else {
-                console.log(userData)
                 dispatch(setCurrentUser(userData.data))
             }
             
@@ -50,10 +49,8 @@ export const signup = credentials => {
         .then(response => response.json())
         .then(userData => {
             if(userData.error){
-                debugger
                 console.log(userData.errors)
             } else {
-                console.log(userData)
                 dispatch(setCurrentUser(userData.data))
             }
             
