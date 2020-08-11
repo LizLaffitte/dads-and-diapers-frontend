@@ -5,14 +5,17 @@ import LoginForm from '../components/userForms/LoginForm'
 import SignupForm from '../components/userForms/SignupForm'
 import {login, signup} from '../actions/userActions'
 import {fetchListings, setCurrentListing} from '../actions/listingActions'
+import {fetchReviews} from '../actions/reviewActions'
 import Listings from '../components/listings/Listings'
 import NewListingFormWrapper from '../containers/NewListingFormWrapper'
 import EditListingFormWrapper from '../containers/EditListingFormWrapper'
-import Listing from '../components/listings/Listing'
+import ListingContainer from '../components/listings/ListingContainer'
+
 
 class MainContainer extends Component {
     componentDidMount(){
         this.props.fetchListings()
+        this.props.fetchReviews()
     }
 
     loggedIn = () =>{
@@ -35,7 +38,7 @@ class MainContainer extends Component {
                         <Route exact path='/listings' render={props => <Listings {...props} listings={this.props.listings} />} />
                         <Route exact path='/listings/new' component={NewListingFormWrapper} />
                         <Route exact path="/listings/:id/edit"  render={(props) => <EditListingFormWrapper {...props} listing={this.findListing(props.match.params.id)} />                       }  />
-                        <Route exact path="/listings/:id" render={props => <Listing {...props} listing={this.findListing(props.match.params.id)} />}/>
+                        <Route exact path="/listings/:id" render={props => <ListingContainer {...props} listing={this.findListing(props.match.params.id)} />}/>
                     </Switch>
 
             </main>
@@ -43,4 +46,4 @@ class MainContainer extends Component {
     }
 }
 const mapStateToProps = ({currentUser, listings, currentListing}) => ({currentUser, listings, currentListing})
-export default connect(mapStateToProps, {login, signup, fetchListings, setCurrentListing})(MainContainer)
+export default connect(mapStateToProps, {login, signup, fetchListings, setCurrentListing, fetchReviews})(MainContainer)
