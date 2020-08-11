@@ -26,6 +26,19 @@ export const testListing = listing => {
     }
 }
 
+export const setCurrentListing = listing => {
+    return {
+        type: "SET_CURRENT_LISTING",
+        listing
+    }
+}
+
+export const clearCurrentListing = () => {
+    return {
+        type: "CLEAR_CURRENT_LISTING"
+    }
+}
+
 //Async
 
 export const fetchListings = () => {
