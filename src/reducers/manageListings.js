@@ -6,9 +6,6 @@ export default function manageListings(state=[], action){
             return [...state, action.listing]
         case 'EDIT_LISTING':
             return state.map(listing => listing.id == action.listing.id ? action.listing : listing)
-        case 'TEST_LISTING':
-            console.log("This is a test")
-            return state
         default:
             return state
     }
