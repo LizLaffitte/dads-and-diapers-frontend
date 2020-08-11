@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 class HeaderContainer extends Component {
     componentDidMount() {
         this.props.getCurrentUser()
-      }
+    }
 
     buttonRender = () => {
         return (
