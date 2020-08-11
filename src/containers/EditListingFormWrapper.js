@@ -1,18 +1,18 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import ListingForm from '../components/listings/ListingForm'
 import { connect } from 'react-redux'
 import {updateListing} from '../actions/listingActions'
-import { testListing } from '../actions/listingActions'
 
-class EditListingFormWrapper extends Component {
 
-    handleOnSubmit = (state) => {
-        this.props.updateListing({name: state.name, address: state.address}, this.props.listing.id)
+
+class EditListingFormWrapper extends PureComponent {
+
+    handleOnSubmit = (formData) => {
+        this.props.updateListing({name: formData.name, address: formData.address},this.props.currentOptions.currentListing.id)
     }
-
     render(){
-        return (<ListingForm listing={this.props.listing} header={"Edit "} submit={this.handleOnSubmit}  history={this.props.history} />)    
+        return (<ListingForm  listing={this.props.currentOptions.currentListing} header={"Edit "} submit={this.handleOnSubmit}  history={this.props.history} />)    
     }
 }
-
-export default connect(null, {updateListing})(EditListingFormWrapper)
+const mapStateToProps = ({currentOptions}) => ({currentOptions})
+export default connect(mapStateToProps, {updateListing})(EditListingFormWrapper)
