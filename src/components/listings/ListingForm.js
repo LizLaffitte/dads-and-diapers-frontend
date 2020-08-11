@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-class ListingForm extends Component {
+
+class ListingForm extends PureComponent {
+
     state = {
-        name: this.props.listing.name,
-        address: this.props.listing.address
+        name: this.props.listing.attributes.name,
+        address: this.props.listing.attributes.address
     }
 
     handleOnChange = (e) => {
