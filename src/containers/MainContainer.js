@@ -9,24 +9,31 @@ import {fetchReviews} from '../actions/reviewActions'
 import Listings from '../components/listings/Listings'
 import NewListingFormWrapper from '../containers/NewListingFormWrapper'
 import EditListingFormWrapper from '../containers/EditListingFormWrapper'
-import ListingContainer from '../components/listings/ListingContainer'
+import ListingContainer from '../containers/ListingContainer'
+
 
 
 class MainContainer extends Component {
     componentDidMount(){
         this.props.fetchListings()
-        this.props.fetchReviews()
     }
+    findListing = (id) => {
+        let listing = this.props.listings.find(listing => listing.id == id)
+        if(listing != this.props.currentListing) {
+            this.props.setCurrentListing(listing)
+            return listing
+        } else {
+            let listing = JSON.parse(localStorage.getItem('currentListing'))
+            return listing
+        }
+    }    
+
 
     loggedIn = () =>{
         return this.props.currentUser
     }
 
-    findListing = (id) => {
-        const listing = this.props.listings.find(listing => listing.id == id)
-        this.props.setCurrentListing(listing)
-        return listing
-    }
+
     render(){
         return(
             <main>
@@ -35,12 +42,16 @@ class MainContainer extends Component {
                             {this.loggedIn() ? <Redirect to="/listings" /> : <LoginForm login={this.props.login}  />}
                         </Route>
                         <Route exact path='/signup' render={props => <SignupForm {...props} signup={this.props.signup} />} />
-                        <Route exact path='/listings' render={props => <Listings {...props} listings={this.props.listings} />} />
-                        <Route exact path='/listings/new' component={NewListingFormWrapper} />
-                        <Route exact path="/listings/:id/edit"  render={(props) => <EditListingFormWrapper {...props} listing={this.findListing(props.match.params.id)} />                       }  />
-                        <Route exact path="/listings/:id" render={props => <ListingContainer {...props} listing={this.findListing(props.match.params.id)} />}/>
-                    </Switch>
+                        <Route exact path='/listings' render={props => <Listings {...props} listings={this.props.listings}/>} />
+                        {/* <Route exact path='/listings/new' component={NewListingFormWrapper} />*/}
 
+                        <Route exact path="/listings/:id/edit" render={props => {
+                                const listing = this.findListing(props.match.params.id)
+                        return <EditListingFormWrapper {...props} listing={listing} />}}/>
+                        <Route exact path="/listings/:id" render={props => {
+                             const listing = this.findListing(props.match.params.id)
+                        return <ListingContainer {...props} listing={listing} />}}/>
+                    </Switch>
             </main>
         )
     }

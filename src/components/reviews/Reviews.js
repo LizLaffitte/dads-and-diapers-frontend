@@ -14,7 +14,7 @@ class Reviews extends Component {
             <div>
              <h1>Reviews:</h1>          
             {this.renderReviews()}
-            {console.log(this.props)}
+            
         </div>
         )
         
