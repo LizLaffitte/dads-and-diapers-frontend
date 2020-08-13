@@ -43,8 +43,7 @@ class MainContainer extends Component {
                         </Route>
                         <Route exact path='/signup' render={props => <SignupForm {...props} signup={this.props.signup} />} />
                         <Route exact path='/listings' render={props => <Listings {...props} listings={this.props.listings}/>} />
-                        {/* <Route exact path='/listings/new' component={NewListingFormWrapper} />*/}
-
+                        <Route exact path='/listings/new' component={NewListingFormWrapper} />
                         <Route exact path="/listings/:id/edit" render={props => {
                                 const listing = this.findListing(props.match.params.id)
                         return <EditListingFormWrapper {...props} listing={listing} />}}/>
