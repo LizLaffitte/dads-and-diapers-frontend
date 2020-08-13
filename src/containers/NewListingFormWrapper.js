@@ -10,7 +10,7 @@ class NewListingFormWrapper extends Component {
     }
 
     render(){
-        const listing = {address: "", name:"", id:""}
+        const listing = {attributes: {address: "", name:""}}
         return (
             <ListingForm listing={listing} header={"Add a New "} submit={this.handleOnSubmit} history={this.props.history} />
         )
