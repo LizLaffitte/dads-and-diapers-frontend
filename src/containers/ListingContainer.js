@@ -1,15 +1,21 @@
-import React from 'react'
+import React, {Component} from 'react'
+
 import Listing from '../components/listings/Listing'
 import Reviews from '../components/reviews/Reviews'
 
-function ListingContainer(props){
-    return(
+class ListingContainer extends Component {
+    render() {
+        const {listing} = this.props
         
-        <div>
-            <Listing listing={props.listing} key={props.listing.id} />
-            <Reviews listing={props.listing} />
-        </div>
-    )
+        return(
+        
+            <div class="listingcard">
+                <Listing listing={listing} key={listing.id} />
+                <Reviews reviews={listing.attributes.reviews} />
+            </div>
+        )
+    }
+    
 }
 
 export default ListingContainer
