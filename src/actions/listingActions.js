@@ -69,7 +69,7 @@ export const createListing = (listingFormData) => {
             if(resp.errors){
                 alert(resp.errors)
             } else {
-                dispatch(addListing(resp))
+                dispatch(addListing(resp.data))
             }
         })
         .catch(console.log())
