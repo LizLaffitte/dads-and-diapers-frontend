@@ -5,9 +5,9 @@ class Review extends Component {
     
     render(){
         return(
-            <div>
+            <div className="review">
                 Review
-                {console.log(this.props)}
+                {console.log(this.props.review)}
             </div>
         )
     }
