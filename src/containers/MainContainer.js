@@ -10,16 +10,17 @@ import Listings from '../components/listings/Listings'
 import NewListingFormWrapper from '../containers/NewListingFormWrapper'
 import EditListingFormWrapper from '../containers/EditListingFormWrapper'
 import ListingContainer from '../containers/ListingContainer'
-
+import NewReviewFormWrapper from './NewReviewFormWrapper'
 
 
 class MainContainer extends Component {
     componentDidMount(){
         this.props.fetchListings()
+        this.props.fetchReviews()
     }
     findListing = (id) => {
-        let listing = this.props.listings.find(listing => listing.id == id)
-        if(listing != this.props.currentListing) {
+        let listing = this.props.listings.find(listing => listing.id === id)
+        if(listing !== this.props.currentListing) {
             this.props.setCurrentListing(listing)
             return listing
         } else {
@@ -50,6 +51,10 @@ class MainContainer extends Component {
                         <Route exact path="/listings/:id" render={props => {
                              const listing = this.findListing(props.match.params.id)
                         return <ListingContainer {...props} listing={listing} />}}/>
+                        <Route exact path={'/listings/:id/reviews/new'} render={props => {
+                            const listing = this.findListing(props.match.params.id)
+                            return <NewReviewFormWrapper {...props} listing={listing}/>
+                        }} />
                     </Switch>
             </main>
         )
