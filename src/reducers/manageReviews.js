@@ -5,7 +5,7 @@ export default function manageListings(state=[], action){
         case 'ADD_REVIEW':
             return [...state, action.review]
         case 'EDIT_REVIEW':
-            return state.map(review => review.id == action.review.id ? action.review : review)
+            return state.map(review => review.id === action.review.id ? action.review : review)
         default:
             return state
     }
