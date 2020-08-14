@@ -1,7 +1,12 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
 import Listing from './Listing'
+import {fetchListings} from '../../actions/listingActions'
 
 class Listings extends Component {
+    componentDidMount(){
+        this.props.fetchListings()
+    }
 
    renderListings = () => {
        
@@ -20,4 +25,4 @@ class Listings extends Component {
     }
 }
 
-export default Listings
+export default connect(null, {fetchListings})(Listings)
