@@ -20,6 +20,7 @@ class ListingForm extends PureComponent {
     handleOnSubmit = (e) => {
         e.preventDefault()
         this.props.submit(this.state)
+        this.props.history.push(this.props.redirect)
     }
 
     render(){
