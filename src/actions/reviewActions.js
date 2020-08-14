@@ -69,7 +69,7 @@ export const createReview = (reviewFormData) => {
             if(resp.errors){
                 alert(resp.errors)
             } else {
-                dispatch(addReview(resp))
+                dispatch(addReview(resp.data))
             }
         })
         .catch(console.log())
