@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import ReviewForm from '../components/reviews/ReviewForm'
-import Listing from '../components/listings/Listing'
-import {updateReview} from '../actions/reviewActions'
+import {updateReview, fetchReviews} from '../actions/reviewActions'
 
 
 class EditReviewFormContainer extends PureComponent {
@@ -17,6 +16,9 @@ class EditReviewFormContainer extends PureComponent {
             </div>
         )
     }
+    componentWillUnmount(){
+        this.props.fetchReviews()
+    }
 }
 const mapStateToProps = ({listings}) => ({listings})
-export default connect(mapStateToProps, {updateReview})(EditReviewFormContainer)
+export default connect(mapStateToProps, {updateReview, fetchReviews})(EditReviewFormContainer)
