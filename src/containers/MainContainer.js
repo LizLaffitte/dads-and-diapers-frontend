@@ -75,6 +75,11 @@ class MainContainer extends Component {
                             const review = this.findReview(props.match.params.id)
                             return <EditReviewFormContainer {...props} review={review} listing={listing}/>
                         }} />
+                        {/* <Route exact path={'/listings/:listingid/reviews/:id/delete'} render={props => {
+                            const listing = this.findListing(props.match.params.listingid)
+                            const review = this.findReview(props.match.params.id)
+                            return <EditReviewFormContainer {...props} review={review} listing={listing}/>
+                        }} /> */}
                         <Route exact path="/listings/:id/reviews" render={props => <Redirect to={`/listings/${props.match.params.id}`} />} />
                     </Switch>
             </main>
