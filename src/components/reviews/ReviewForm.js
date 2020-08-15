@@ -23,7 +23,8 @@ class ReviewForm extends PureComponent {
 
     handleOnSubmit = (e) => {
         e.preventDefault()
-        this.props.submit(this.state) ? this.props.history.push(this.props.redirect) : this.props.history.push("/login")
+        this.props.submit(this.state)
+        this.props.history.push(this.props.redirect)
     }
 
     render(){
