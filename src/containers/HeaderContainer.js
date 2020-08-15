@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 import LogoutForm from '../components/userForms/LogoutForm'
 import Navbar from '../components/Navbar'
 import {getCurrentUser, logout} from '../actions/userActions'
-import { NavLink } from 'react-router-dom'
+import {fetchListings, setCurrentListing} from '../actions/listingActions'
+import {fetchReviews} from '../actions/reviewActions'
+import {fetchUsers} from '../actions/userActions'
 
 class HeaderContainer extends Component {
     componentDidMount() {
         this.props.getCurrentUser()
+        this.props.fetchListings()
+        this.props.fetchReviews()
+        this.props.setCurrentListing()
+        this.props.fetchUsers()
     }
 
     buttonRender = () => {
@@ -29,4 +36,4 @@ class HeaderContainer extends Component {
 
 const mapStateToProps = ({currentUser}) => ({currentUser})
 
-export default connect(mapStateToProps, {getCurrentUser, logout})(HeaderContainer)
+export default connect(mapStateToProps, {getCurrentUser, logout, fetchListings, setCurrentListing, fetchReviews, fetchUsers})(HeaderContainer)
