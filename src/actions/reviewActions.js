@@ -19,10 +19,10 @@ export const editReview = review => {
     }
 }
 
-export const testReview = review => {
+export const deleteReview = reviewId => {
     return{
-        type: "TEST_REVIEW",
-        review
+        type: "DELETE_REVIEW",
+        reviewId
     }
 }
 
@@ -96,3 +96,21 @@ export const updateReview = (reviewUpdateData, reviewId) => {
     }
 }
 
+export const destroyReview = (reviewId) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/api/v1/reviews/${reviewId}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+        .then(response => response.json())
+        .then(resp => {
+            if(resp.error){
+                alert(resp.error)
+            } else {
+                dispatch(deleteReview(reviewId))
+            }
+        }).catch(console.log())
+    }
+}
