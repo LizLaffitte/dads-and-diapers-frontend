@@ -4,7 +4,7 @@ export default function manageListings(state=[], action){
             return action.users
         case 'ADD_USER':
             return [...state, action.user]
-        case 'EDIT_LISTING':
+        case 'EDIT_USER':
             return state.map(user => user.id === action.user.id ? action.user : user)
         default:
             return state
