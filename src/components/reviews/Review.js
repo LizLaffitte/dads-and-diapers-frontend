@@ -12,7 +12,12 @@ class Review extends Component  {
 
     isOwner = (user) => {
         if(this.props.currentUser && user.id.toString() === this.props.currentUser.id){
-            return <Button link={`/listings/${this.props.listing.id}/reviews/${this.props.review.id}/edit`} text="Edit Review" />
+            return (
+                <div>
+                <Button link={`/listings/${this.props.listing.id}/reviews/${this.props.review.id}/edit`} text="Edit" /> 
+                <Button link={`/listings/${this.props.listing.id}/reviews/${this.props.review.id}/delete`} text="Delete" /> 
+                </div>
+                )
         }
     }
         
