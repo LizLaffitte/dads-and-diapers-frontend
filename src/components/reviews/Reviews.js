@@ -7,12 +7,8 @@ class Reviews extends Component {
 
     renderReviews = (reviews) => {
             return reviews.map(review => {
-                    return (<Review key={review.id} review={review} user={this.associatedUser(review)} currentUser={this.props.currentUser} listing={this.props.listing} />)
+                    return (<Review key={review.id} review={review} user={review.attributes.user} currentUser={this.props.currentUser} listing={this.props.listing} />)
             })
-    }
-
-    associatedUser = (review) => {
-        return this.props.users.find(user => user.id == review.attributes.user_id)
     }
         
     render()  {
