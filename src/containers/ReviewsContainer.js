@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import NewReviewFormWrapper from './NewReviewFormWrapper'
 import EditReviewFormContainer from './EditReviewFormContainer'
 import Reviews from '../components/reviews/Reviews'
-import {setCurrentReview} from '../actions/reviewActions'
+import {setCurrentReview, destroyReview} from '../actions/reviewActions'
+import DeleteConfirmation from '../components/DeleteMessage'
 
 
 class ReviewsContainer extends Component {
@@ -35,11 +36,10 @@ class ReviewsContainer extends Component {
                  const review = this.findReview(props.match.params.id)
                  return <EditReviewFormContainer {...props} review={review} listing={listing}/>
             }} />
-                           {/* <Route exact path={'/listings/:listingid/reviews/:id/delete'} render={props => {
-                            const listing = this.findListing(props.match.params.listingid)
-                            const review = this.findReview(props.match.params.id)
-                            return <EditReviewFormContainer {...props} review={review} listing={listing}/>
-                        }} /> */}
+            <Route exact path={'/listings/:listingid/reviews/:id/delete'} render={props => {
+                const review = this.findReview(props.match.params.id)
+                return <DeleteConfirmation {...props} submit={this.props.destroyReview}  review={review} listing={this.props.listing}/>
+            }} />
         </Switch> 
 
         </div>
@@ -48,4 +48,4 @@ class ReviewsContainer extends Component {
 }
 
 const mapStateToProps = ({reviews, currentReview}) => ({reviews, currentReview})
-export default connect(mapStateToProps, {setCurrentReview})(ReviewsContainer)
+export default connect(mapStateToProps, {setCurrentReview, destroyReview})(ReviewsContainer)
