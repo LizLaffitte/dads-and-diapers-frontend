@@ -87,12 +87,12 @@ export const updateReview = (reviewUpdateData, reviewId) => {
           })
         .then(response => response.json())
         .then(resp => {
-            if(resp.errors){
-                alert(resp.errors)
+            if(resp.error){
+                alert(resp.error)
             } else {
                 dispatch(editReview(resp.data))
             }
-        })
+        }).catch(console.log())
     }
 }
 
