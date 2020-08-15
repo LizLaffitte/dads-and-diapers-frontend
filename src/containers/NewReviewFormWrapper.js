@@ -9,7 +9,7 @@ class NewReviewFormWrapper extends Component {
     handleOnSubmit = (state) => {
         if(this.props.currentUser){
             this.props.createReview(
-                {listing_id: this.props.listing.id, mens: state.mens, womens: state.womens, clean: state.clean, private: state.private, broken: state.broken, user_id: this.props.currentUser.id
+                {listing_id: this.props.listing.id, mens: state.mens, womens: state.womens, clean: state.clean, isolated: state.isolated, working: state.working, user_id: this.props.currentUser.id
                 })
         } else {
             alert("You must be logged in to add a review.")
@@ -18,11 +18,12 @@ class NewReviewFormWrapper extends Component {
     }
 
     render(){
+        const review = {attributes: {womens: false, mens: false, isolated: false, broken: false, clean: false}}
         const {listing} = this.props
         return (
             <div className="flex space-btwn">
                     <Listing listing={listing} />
-                    <ReviewForm listing={listing} header={"Review"} submit={this.handleOnSubmit} history={this.props.history} redirect={`/listings/${listing.id}`} />
+                    <ReviewForm listing={listing} review={review} header={"Review"} submit={this.handleOnSubmit} history={this.props.history} redirect={`/listings/${listing.id}`} />
             </div>
         )
     }
