@@ -27,8 +27,7 @@ class Review extends Component  {
             <div className="review">
                 {user.username}
                 <div>
-                <span className={this.classDecision(mens)}>Men's</span> | <span className={this.classDecision(womens)}>Women's</span> <br />
-                <span className={this.classDecision(isolated)}>Private</span> | <span className={this.classDecision(clean)}>Clean</span> | <span className={this.classDecision(working)}>Working</span>
+                <span className={this.classDecision(mens)}>Men's</span> | <span className={this.classDecision(womens)}>Women's</span> | <span className={this.classDecision(isolated)}>Private</span> | <span className={this.classDecision(clean)}>Clean</span> | <span className={this.classDecision(working)}>Working</span>
                     {this.isOwner(user)}
                 </div>
             </div>
