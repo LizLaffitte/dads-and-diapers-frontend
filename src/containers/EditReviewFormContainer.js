@@ -13,11 +13,10 @@ class EditReviewFormContainer extends PureComponent {
         const {listing, review, history} = this.props
         return (
             <div className="flex space-btwn">
-                    <Listing listing={listing} />
                     <ReviewForm listing={listing} review={review} header={"Review"} submit={this.handleOnSubmit} history={history} redirect={`/listings/${listing.id}`}  />
             </div>
         )
     }
 }
-const mapStateToProps = ({currentOptions, listings}) => ({currentOptions, listings})
+const mapStateToProps = ({listings}) => ({listings})
 export default connect(mapStateToProps, {updateReview})(EditReviewFormContainer)

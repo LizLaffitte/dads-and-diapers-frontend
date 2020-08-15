@@ -7,12 +7,12 @@ import {updateListing, setCurrentListing} from '../actions/listingActions'
 
 class EditListingFormWrapper extends PureComponent {
     handleOnSubmit = (formData) => {
-        this.props.updateListing({name: formData.name, address: formData.address},this.props.currentOptions.currentListing.id)
+        this.props.updateListing({name: formData.name, address: formData.address},this.props.currentListing.id)
     }
     render(){
-        const listing = this.props.currentOptions.currentListing
+        const {listing} = this.props
         return (<ListingForm  listing={listing} header={"Edit "} submit={this.handleOnSubmit}  history={this.props.history} redirect={`/listings/${listing.id}`} />)    
     }
 }
-const mapStateToProps = ({currentOptions, listings}) => ({currentOptions, listings})
+const mapStateToProps = ({currentListing, listings}) => ({currentListing, listings})
 export default connect(mapStateToProps, {updateListing, setCurrentListing})(EditListingFormWrapper)

@@ -22,7 +22,6 @@ class NewReviewFormWrapper extends Component {
         const {listing} = this.props
         return (
             <div className="flex space-btwn">
-                    <Listing listing={listing} />
                     <ReviewForm listing={listing} review={review} header={"Review"} submit={this.handleOnSubmit} history={this.props.history} redirect={`/listings/${listing.id}`} />
             </div>
         )
