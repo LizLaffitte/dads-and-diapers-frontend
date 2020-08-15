@@ -7,13 +7,12 @@ class Listing extends Component {
         const {name, address, mens_chance, womens_chance} = this.props.listing.attributes
         const {id} = this.props.listing
         return(
-            <div className="listing">
+            <div className="listing" >
                 <Link to={`/listings/${id}`}><h2>{name}</h2></Link>
                 <p>{address}</p>
                 <div className="rating-results">
-                <div>{mens_chance}% Men's</div>
-                <div>{womens_chance}% Women's</div>
-                {/* <Link to={`/listings/${this.props.listing.id}/edit`}>Edit</Link> */}
+                <div>Men's: {mens_chance}</div>
+                <div>Women's: {womens_chance}</div>
                 </div>
             </div>
         )
