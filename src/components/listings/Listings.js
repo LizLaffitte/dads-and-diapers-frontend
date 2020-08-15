@@ -1,12 +1,7 @@
 import React, {Component} from 'react'
-import { connect } from 'react-redux'
 import Listing from './Listing'
 
 class Listings extends Component {
-    componentDidMount(){
-        // this.props.fetchListings()
-    }
-
    renderListings = () => {
        
        return this.props.listings.map(listing => {
@@ -23,4 +18,4 @@ class Listings extends Component {
     }
 }
 
-export default connect(null, {fetchListings})(Listings)
+export default Listings
