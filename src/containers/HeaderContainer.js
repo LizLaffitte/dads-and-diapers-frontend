@@ -13,7 +13,7 @@ class HeaderContainer extends Component {
         this.props.getCurrentUser()
         this.props.fetchListings()
         this.props.fetchReviews()
-        this.props.setCurrentListing()
+        this.props.setCurrentListing(JSON.parse(localStorage.getItem('currentListing')))
         this.props.fetchUsers()
     }
 
