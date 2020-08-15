@@ -1,11 +1,10 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import Listing from './Listing'
-import {fetchListings} from '../../actions/listingActions'
 
 class Listings extends Component {
     componentDidMount(){
-        this.props.fetchListings()
+        // this.props.fetchListings()
     }
 
    renderListings = () => {
@@ -17,8 +16,7 @@ class Listings extends Component {
     render(){
 
         return (
-            <div>
-                 <h1>Listings:</h1>                  
+            <div className="flex" id="listings">             
                 {this.renderListings()}
             </div>
         )
