@@ -5,11 +5,8 @@ import Listing from '../components/listings/Listing'
 import {updateReview} from '../actions/reviewActions'
 
 
-
-
 class EditReviewFormContainer extends PureComponent {
     handleOnSubmit = (formData) => {
-        const updatedData = {...formData, user_id: this.props.review.attributes.user.id}
         this.props.updateReview(formData,this.props.review.id)
     }
     render(){
