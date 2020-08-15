@@ -1,4 +1,4 @@
-export default function manageListings(state=[], action){
+export default function manageReviews(state=[], action){
     switch(action.type){
         case 'ADD_REVIEWS':
             return action.reviews
