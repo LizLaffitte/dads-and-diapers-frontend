@@ -11,6 +11,7 @@ import NewListingFormWrapper from '../containers/NewListingFormWrapper'
 import EditListingFormWrapper from '../containers/EditListingFormWrapper'
 import ListingContainer from '../containers/ListingContainer'
 import NewReviewFormWrapper from './NewReviewFormWrapper'
+import EditReviewFormContainer from './EditReviewFormContainer'
 
 
 class MainContainer extends Component {
@@ -22,6 +23,7 @@ class MainContainer extends Component {
         let listing = this.props.listings.find(listing => listing.id === id)
         if(listing !== this.props.currentListing) {
             this.props.setCurrentListing(listing)
+            
             return listing
         } else {
             let listing = JSON.parse(localStorage.getItem('currentListing'))
@@ -29,6 +31,19 @@ class MainContainer extends Component {
         }
     }    
 
+    findReview = (id) => {
+        let review = this.props.reviews.find(review => review.id === id)
+        return review
+        // if(review !== this.props.currentListing) {
+        //     this.props.setCurrentListing(listing)
+            
+        //     return listing
+        // }
+        // else {
+        //     let listing = JSON.parse(localStorage.getItem('currentListing'))
+        //     return listing
+        // }
+    }  
 
     loggedIn = () =>{
         return this.props.currentUser
@@ -55,10 +70,16 @@ class MainContainer extends Component {
                             const listing = this.findListing(props.match.params.id)
                             return <NewReviewFormWrapper {...props} listing={listing}/>
                         }} />
+                        <Route exact path={'/listings/:listingid/reviews/:id/edit'} render={props => {
+                            const listing = this.findListing(props.match.params.listingid)
+                            const review = this.findReview(props.match.params.id)
+                            return <EditReviewFormContainer {...props} review={review} listing={listing}/>
+                        }} />
+                        <Route exact path="/listings/:id/reviews" render={props => <Redirect to={`/listings/${props.match.params.id}`} />} />
                     </Switch>
             </main>
         )
     }
 }
-const mapStateToProps = ({currentUser, listings, currentListing}) => ({currentUser, listings, currentListing})
+const mapStateToProps = ({currentUser, listings, currentListing, reviews}) => ({currentUser, listings, currentListing, reviews})
 export default connect(mapStateToProps, {login, signup, fetchListings, setCurrentListing, fetchReviews})(MainContainer)
