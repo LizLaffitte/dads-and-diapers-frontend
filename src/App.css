@@ -56,6 +56,7 @@ header div.log-btns{
 }
 .flex{
   display: flex;
+  flex-wrap: wrap;
 }
 .space-btwn {
   justify-content: space-between;
@@ -69,12 +70,16 @@ main {
   padding: 10px;
   
 }
+#listings div{
+  flex-basis:225px;
+}
 
-/* .listing{
-  flex-grow: 1;
-  border: 1px solid black;
-} */
-
+span.green{
+  color: green;
+}
+span.red {
+  color: red;
+}
 .main {
   justify-content: space-between;
 }
