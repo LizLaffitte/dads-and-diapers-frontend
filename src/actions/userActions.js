@@ -1,3 +1,10 @@
+export const addUsers = users => {
+    return {
+        type: "ADD_USERS",
+        users
+    }
+}
+
 export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
@@ -97,6 +104,20 @@ export const logout = () => {
             }
             
         })
+        .catch(console.log())
+    }
+}
+
+export const fetchUsers = () => {
+    return dispatch => {
+        return fetch('http://localhost:3001/api/v1/users', {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+        .then(response => response.json())
+        .then(userData => dispatch(addUsers(userData.data)))
         .catch(console.log())
     }
 }
