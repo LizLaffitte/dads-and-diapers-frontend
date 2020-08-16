@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import Button from './Button'
-import Review from '../components/reviews/Review'
 import {connect} from 'react-redux'
 import {fetchReviews} from '../actions/reviewActions'
 
