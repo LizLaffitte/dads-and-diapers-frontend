@@ -109,6 +109,7 @@ export const destroyReview = (reviewId) => {
             if(resp.error){
                 alert(resp.error)
             } else {
+                console.log(resp.notice)
                 dispatch(deleteReview(reviewId))
             }
         }).catch(console.log())
