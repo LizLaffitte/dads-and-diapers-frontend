@@ -5,6 +5,7 @@ class LogoutForm extends Component {
     handleOnSubmit = (e) => {
         e.preventDefault()
         this.props.logout()
+        this.props.history.push("/login")
     }
     render() {
         return(
