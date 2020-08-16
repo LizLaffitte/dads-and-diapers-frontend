@@ -1,68 +1,70 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Dads and Diapers
+Being a parent to small children comes with many challenges, having to worry about where you're going to change diapers when you're out of the house shouldn't be one of them.
 
-## Available Scripts
+Dads and Diapers is an all for finding and rating public places based on the availability and condition of changing tables.
 
-In the project directory, you can run:
+[Frontend Repo](https://github.com/LizLaffitte/dads-and-diapers-frontend) | [Backend Repo](https://github.com/LizLaffitte/dads-and-diapers-backend)
 
-### `yarn start`
+## Getting Started
+These instructions will get you a copy of Dads and Diapers up and running on your local machine for development and testing purposes.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
+Other than the gems and packages listed in this app's Gemfile and Package files, you will need to have [Ruby](https://www.ruby-lang.org/en/downloads/), [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html), [Node.js](https://nodejs.org/en/download/) and  [Yarn](https://classic.yarnpkg.com/en/docs/getting-started) installed on your local machine as well as the ability to install Ruby gems and Node packages.
 
+### Installing
+
+To run this app locally, fork and clone the [frontend GitHub repo](https://github.com/LizLaffitte/dads-and-diapers-frontend) and the [backend Github repo](https://github.com/LizLaffitte/dads-and-diapers-backend) to your local machine. 
+
+Change directories into the backend local directory. Run bundle install to install dependencies, and rails db:migrate and rails db:seed to create and seed the database. 
+```
+$cd dads-and-diapers-frontend
+$bundle install
+$rails db:migrate
+$rails db:seed
+```
+
+Run the following command in your terminal to launch a web server and access the backend API in a web browser. Note that we are specifying a port number. If port 3001 is not used, you will have to make changes to the fetch URLs on the frontend.
+```
+$rails s -p 3001
+```
+
+Change directories into the frontend local directory. Run the following commands to run the app in development mode. 
+
+```
+$cd ..
+$cd dads-and-diapers-frontenc
+$yarn start
+```
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+## Built With
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [Rails](https://rubyonrails.org/)
+* [SQLite](https://www.sqlite.org/index.html)
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [Create React App](https://github.com/facebook/create-react-app).
 
-### `yarn build`
+## Roadmap
+Plans to incorporate:
+* Geocoding/map API
+* Address autofills
+* Ability to filter by state and zip code
+* Listing name search
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Author
+This application was built by Liz Laffitte as a final project for Flatiron School.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Acknowledgements
+Toggle components based entirely on Praveen Kumar's
+[tutorial](https://www.sitepoint.com/react-toggle-switch-reusable-component/).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
 
-### `yarn eject`
+Bug reports and pull requests are welcome on GitHub at https://github.com/LizLaffitte/dads-and-diapers-fronted. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant [code of conduct](CODE_OF_CONDUCT.md).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
