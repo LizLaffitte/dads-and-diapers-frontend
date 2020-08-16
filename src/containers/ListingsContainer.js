@@ -18,7 +18,7 @@ class ListingsContainer extends Component {
     findListing = (id) => {
         let listing = this.props.listings.find(listing => listing.id === id)
         if(listing) {
-            if(this.props.currentListing && listing != this.props.currentListing){
+            if(listing != this.props.currentListing){
                 console.log("Listing:", listing)
                 console.log(this.props.currentListing)
                 this.props.setCurrentListing(listing)
