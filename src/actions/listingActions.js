@@ -57,7 +57,8 @@ export const fetchListings = () => {
 
 export const createListing = (listingFormData) => {
     return dispatch => {
-        const listing = {listing: listingFormData}
+        const listing = {listing: {...listingFormData, womens_chance: false, mens_chance: false, isolated_chance: false, working_chance: false, clean_chance:false}}
+        debugger
         return fetch('http://localhost:3001/api/v1/listings', {
         method: "POST",
             headers: {
