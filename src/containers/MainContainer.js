@@ -7,7 +7,7 @@ import {login, signup} from '../actions/userActions'
 import {fetchListings} from '../actions/listingActions'
 import {fetchReviews} from '../actions/reviewActions'
 import ListingsContainer from '../containers/ListingsContainer'
-import Search from '../components/Search'
+import Home from '../containers/Home'
 
 
 class MainContainer extends Component {
@@ -20,7 +20,7 @@ class MainContainer extends Component {
         return(
             <main>
                     <Switch>
-                        <Route exact path='/' component={Search}/>
+                        <Route exact path='/' component={Home}/>
                         <Route exact path='/login' >
                             {this.loggedIn() ? <Redirect to="/listings" /> : <LoginForm login={this.props.login}  />}
                         </Route>
