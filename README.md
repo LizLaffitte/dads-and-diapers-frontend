@@ -1,15 +1,18 @@
 # Dads and Diapers
+A React application designed to help parents of young children find and rate public places based on the availability of changing tables. Users can add locations, view ratings and leave ratings of their own. For each location, users are asked whether changing rooms are available in mens and women's rooms, and whether they are clean and in good working order. 
+
 Being a parent to small children comes with many challenges, having to worry about where you're going to change diapers when you're out of the house shouldn't be one of them.
 
-Dads and Diapers is an app for finding and rating public places based on the availability and condition of changing tables.
+Dads and Diapers was built from my husband's and my experience as first time parents. Whenever we ventured out of the house with our newborn, I could count on having to handle any dirty diapers because of the lack of changing tables in men's public restrooms Dads and Diapers was created to serve as a tool for parents as well as a way to encourage greater availability of changing tables.
 
 [Frontend Repo](https://github.com/LizLaffitte/dads-and-diapers-frontend) | [Backend Repo](https://github.com/LizLaffitte/dads-and-diapers-backend)
 
-## Getting Started
+
+## Local Installation Instructions
 These instructions will get you a copy of Dads and Diapers up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
-Other than the gems and packages listed in this app's Gemfile and Package files, you will need to have [Ruby](https://www.ruby-lang.org/en/downloads/), [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html), [Node.js](https://nodejs.org/en/download/) and  [Yarn](https://classic.yarnpkg.com/en/docs/getting-started) installed on your local machine as well as the ability to install Ruby gems and Node packages.
+Other than the gems and packages listed in this app's Gemfile and Package files, you will need to have [Ruby](https://www.ruby-lang.org/en/downloads/), [Rails](https://guides.rubyonrails.org/v5.0/getting_started.html), [Node.js](https://nodejs.org/en/download/) and a package manager ([Yarn](https://classic.yarnpkg.com/en/docs/getting-started) or [npm](https://www.npmjs.com/)) installed on your local machine as well as the ability to install Ruby gems and Node packages.
 
 ### Installing
 
@@ -17,7 +20,7 @@ To run this app locally, fork and clone the [frontend GitHub repo](https://githu
 
 Change directories into the backend local directory. Run bundle install to install dependencies, and rails db:migrate and rails db:seed to create and seed the database. 
 ```
-$cd dads-and-diapers-frontend
+$cd dads-and-diapers-backend
 $bundle install
 $rails db:migrate
 $rails db:seed
@@ -32,7 +35,8 @@ Change directories into the frontend local directory. Run the following commands
 
 ```
 $cd ..
-$cd dads-and-diapers-frontenc
+$cd dads-and-diapers-frontend
+$npm install
 $yarn start
 ```
 The page will reload if you make edits.<br />
@@ -45,6 +49,7 @@ You will also see any lint errors in the console.
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
 * [Create React App](https://github.com/facebook/create-react-app).
+* Flexbox
 
 ## Roadmap
 Plans to incorporate:
