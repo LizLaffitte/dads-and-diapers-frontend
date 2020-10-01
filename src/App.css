@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display:flex;
+  flex-direction: column;
+  
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -170,4 +174,18 @@ span.red {
 
 header a {
   color: white;
+}
+
+footer {
+  background-color: #282c34;
+  color: white;
+  margin-top:auto;
+}
+#listings .listing{
+  border: 2px solid #282c34;
+  border-radius: 5px;
+  text-align: left;
+}
+h2 {
+  margin-top:0px;
 }
