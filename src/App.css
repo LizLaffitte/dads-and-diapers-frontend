@@ -167,3 +167,7 @@ span.red {
 .toggle-checkbox:checked + .toggle-label .toggle-switch {
   right: 0px;
 }
+
+header a {
+  color: white;
+}
