@@ -3,7 +3,7 @@ import React from 'react'
 function FooterContainer(){
     return(
     <footer>
-        Liz Laffitte
+        <a href="https://github.com/LizLaffitte" target="_blank">Liz Laffitte</a>
     </footer>
     )    
 }
