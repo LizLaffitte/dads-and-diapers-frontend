@@ -41,7 +41,7 @@
   }
 }
 
-header {
+header, footer {
   background-color: #202C39;
   color: #fff;
   display: flex;
@@ -172,7 +172,7 @@ span.red {
   right: 0px;
 }
 
-header a {
+header a, footer a {
   color: white;
 }
 
@@ -180,6 +180,7 @@ footer {
   background-color: #282c34;
   color: white;
   margin-top:auto;
+  
 }
 #listings .listing{
   border: 2px solid #282c34;
