@@ -26,7 +26,7 @@ class HeaderContainer extends Component {
     render(){
         return(
             <header>
-                <div>Dads & Diapers</div>
+                <div><a href="/">Dads & Diapers</a></div>
                 <Navbar />
                 <div className="log-btns">{this.buttonRender()}</div>
             </header>
