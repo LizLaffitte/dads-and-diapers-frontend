@@ -68,7 +68,7 @@ header div.log-btns{
 
 main {
   width: 80%;
-  margin: auto;
+  margin: 20px auto;
 }
 .listing, .review{
   padding: 10px;
@@ -189,4 +189,27 @@ footer {
 }
 h2 {
   margin-top:0px;
+}
+li {
+  list-style: none;
+}
+
+#search-form{
+  text-align:left;
+}
+#search{
+  width:90%;
+  border:1px solid #7d8570;
+  border-right:none;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#search, #search-btn{
+  height: 25px;
+}
+#search-btn{
+  background-color:#7d8570;
+  color:#fff;
+  border:none;
+  border-radius: 0px 5px 5px 0px;
 }
