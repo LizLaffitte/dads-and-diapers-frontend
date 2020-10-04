@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import SearchResults from './SearchResults'
+import SearchResult from './SearchResult'
 
 function Search (props)  {
     const [term, setTerm] = useState("")
@@ -7,7 +7,7 @@ function Search (props)  {
 
     useEffect(() => {
         const results = props.collection.filter(listing =>
-          listing.name.toLowerCase().includes(term)
+          listing.attributes.name.toLowerCase().includes(term)
         )
         setResults(results)
       }, [term])
@@ -20,19 +20,17 @@ function Search (props)  {
         e.preventDefault()
  
     }
-
-
-        return(
+            return(
             <div id="search-form">
                     <form onSubmit={handleOnSubmit}>
-                        <label for="search">Search Listings:</label><br />
-                        <input type="search" id="search" name="search" value={term} onChange={handleOnChange} aria-label="Find public restrooms near you" />
-                    <input type="submit" />
+                        
+                        <input type="search" id="search" name="search" placeholder="Search Listings" value={term} onChange={handleOnChange} aria-label="Find public restrooms near you" />
+                        
+                    <input type="submit" value="Search" id="search-btn" />
                 </form>
                 <div id="search-results">
-                    {/* <SearchResults results={results} /> */}
                     {results.map(result => {
-                        return <li>{result}</li>
+                        return <li><SearchResult result={result} name={result.attributes.name} attr={result.attributes.address} /></li>
                     })}
                 </div>
           </div>
