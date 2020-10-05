@@ -11,7 +11,9 @@ class Listings extends Component {
 
         
    renderListings = () => {
+    debugger
        return this.sortedCollection().map(listing => {
+        
            return (<Listing key={listing.id} listing={listing} />)
        })
    }
