@@ -1,14 +1,11 @@
-import React, { PureComponent } from 'react'
+import React, {Component } from 'react'
 
 
-class ListingForm extends PureComponent {
-    constructor(props){
-        super(props)
-        this.state = {
+class ListingForm extends Component {
+        state = {
             name: this.props.listing.attributes.name,
             address: this.props.listing.attributes.address
         }
-    }
 
 
     handleOnChange = (e) => {
