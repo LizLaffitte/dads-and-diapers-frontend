@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
-import Listing from './Listing'
 import {orderBy} from 'lodash'
+import Listing from './Listing'
+
+
 
 class Listings extends Component {
     
@@ -13,7 +15,7 @@ class Listings extends Component {
    renderListings = () => {
        return this.sortedCollection().map(listing => {
         
-           return (<Listing key={listing.id} listing={listing} />)
+           return (<Listing key={listing.id} listing={listing} more={true}/>)
        })
    }
     render(){
