@@ -43,7 +43,7 @@ class ListingsContainer extends Component {
                              const listing = this.findListing(props.match.params.id)
                         return <ListingCard {...props} listing={listing} />}
                     }/>
-                    <Route exact path='/listings' render={props => {
+                    <Route  path={["/", "/listings"]} render={props => {
                         this.props.clearCurrentListing()
                         return <Listings {...props} listings={listings} /> }
                     }/>

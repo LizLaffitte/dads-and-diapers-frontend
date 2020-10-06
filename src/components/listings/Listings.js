@@ -6,12 +6,11 @@ class Listings extends Component {
     
     
    sortedCollection = () => {
-       return orderBy(this.props.listings, function(l){return l.attributes.address}, ["desc"])
+       return orderBy(this.props.listings, function(l){return l.attributes.name}, ["asc"])
    }
 
         
    renderListings = () => {
-    debugger
        return this.sortedCollection().map(listing => {
         
            return (<Listing key={listing.id} listing={listing} />)

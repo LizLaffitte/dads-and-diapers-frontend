@@ -7,7 +7,7 @@ import {login, signup} from '../actions/userActions'
 import {fetchListings} from '../actions/listingActions'
 import {fetchReviews} from '../actions/reviewActions'
 import ListingsContainer from '../containers/ListingsContainer'
-import Search from '../components/Search'
+import Home from '../containers/Home'
 
 
 class MainContainer extends Component {
@@ -24,7 +24,7 @@ class MainContainer extends Component {
                         <Route exact path='/login' >
                             {this.loggedIn() ? <Redirect to="/listings" /> : <LoginForm login={login}  />}
                         </Route>
-                        <Route exact path='/' render={props => <Search {...props} collection={listings} /> }/>
+                        <Route exact path='/' render={props => <Home {...props} listings={listings} /> }/>                        
                         <Route exact path='/signup' render={props => <SignupForm {...props} signup={signup} />} />
                         <Route path='/listings' render={props => <ListingsContainer {...props} listings={listings}/>} />
                         <Route exact path="/listings/:id/reviews" render={props => <Redirect to={`/listings/${props.match.params.id}`} />} />
