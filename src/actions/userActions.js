@@ -30,6 +30,7 @@ export const login = credentials => {
             },
             body: JSON.stringify(credentials)
           })
+          
         .then(response => response.json())
         .then(userData => {
             if(userData.errors){
