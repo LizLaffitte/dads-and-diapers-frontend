@@ -22,7 +22,7 @@ export const clearCurrentUser = () => {
 //async
 export const login = credentials => {
     return dispatch => {
-        return fetch('http://localhost:3001/login', {
+        return fetch('https://dads-and-diapers-be.herokuapp.com/login', {
             credentials: 'include',
             method: "POST",
             headers: {
@@ -45,7 +45,7 @@ export const login = credentials => {
 
 export const signup = credentials => {
     return dispatch => {
-        return fetch('http://localhost:3001/signup', {
+        return fetch('https://dads-and-diapers-be.herokuapp.com/signup', {
             credentials: 'include',
             method: "POST",
             headers: {
@@ -68,7 +68,7 @@ export const signup = credentials => {
 
 export const getCurrentUser = () => {
     return dispatch => {
-        return fetch('http://localhost:3001/get_current_user', { 
+        return fetch('https://dads-and-diapers-be.herokuapp.com/get_current_user', { 
             credentials: "include",
             method: "GET",
             headers: {
@@ -91,7 +91,7 @@ export const getCurrentUser = () => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
-        return fetch('http://localhost:3001/logout', {
+        return fetch('https://dads-and-diapers-be.herokuapp.com/logout', {
             credentials: 'include',
             method: "DELETE"
           })
@@ -110,7 +110,7 @@ export const logout = () => {
 
 export const fetchUsers = () => {
     return dispatch => {
-        return fetch('http://localhost:3001/api/v1/users', {
+        return fetch('https://dads-and-diapers-be.herokuapp.com/api/v1/users', {
             method: "GET",
             headers: {
               "Content-Type": "application/json"

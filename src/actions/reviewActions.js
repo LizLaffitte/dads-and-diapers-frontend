@@ -43,7 +43,7 @@ export const clearCurrentReview = () => {
 
 export const fetchReviews = () => {
     return dispatch => {
-        return fetch('http://localhost:3001/api/v1/reviews', {
+        return fetch('https://dads-and-diapers-be.herokuapp.com/api/v1/reviews', {
             method: "GET",
             headers: {
               "Content-Type": "application/json"
@@ -58,7 +58,7 @@ export const fetchReviews = () => {
 export const createReview = (reviewFormData) => {
     return dispatch => {
         const review = {review: reviewFormData}
-        return fetch('http://localhost:3001/api/v1/reviews', {
+        return fetch('https://dads-and-diapers-be.herokuapp.com/api/v1/reviews', {
         method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -79,7 +79,7 @@ export const createReview = (reviewFormData) => {
 export const updateReview = (reviewUpdateData, reviewId) => {
     return dispatch => {
         const review = {review: reviewUpdateData}
-        return fetch(`http://localhost:3001/api/v1/reviews/${reviewId}`, {
+        return fetch(`https://dads-and-diapers-be.herokuapp.com/api/v1/reviews/${reviewId}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json"
@@ -98,7 +98,7 @@ export const updateReview = (reviewUpdateData, reviewId) => {
 
 export const destroyReview = (reviewId) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/api/v1/reviews/${reviewId}`, {
+        return fetch(`https://dads-and-diapers-be.herokuapp.com/api/v1/reviews/${reviewId}`, {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json"

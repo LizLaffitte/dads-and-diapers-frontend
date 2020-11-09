@@ -43,7 +43,7 @@ export const clearCurrentListing = () => {
 
 export const fetchListings = () => {
     return dispatch => {
-        return fetch('http://localhost:3001/api/v1/listings', {
+        return fetch('https://dads-and-diapers-be.herokuapp.com/api/v1/listings', {
             method: "GET",
             headers: {
               "Content-Type": "application/json"
@@ -58,7 +58,7 @@ export const fetchListings = () => {
 export const createListing = (listingFormData) => {
     return dispatch => {
         const listing = {listing: {...listingFormData, womens_chance: false, mens_chance: false, isolated_chance: false, working_chance: false, clean_chance:false}}
-        return fetch('http://localhost:3001/api/v1/listings', {
+        return fetch('https://dads-and-diapers-be.herokuapp.com/api/v1/listings', {
         method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -79,7 +79,7 @@ export const createListing = (listingFormData) => {
 export const updateListing = (listingUpdateData, listingId) => {
     return dispatch => {
         const listing = {listing: listingUpdateData}
-        return fetch(`http://localhost:3001/api/v1/listings/${listingId}`, {
+        return fetch(`https://dads-and-diapers-be.herokuapp.com/api/v1/listings/${listingId}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json"
