@@ -5,7 +5,7 @@ import ListingsContainer from '../containers/ListingsContainer'
 function Home(props){
     return(
         <>
-        <Search collection={props.listings} />
+        {/* <Search collection={props.listings} /> */}
         <ListingsContainer listings={props.listings}/>
         </>
     )
